@@ -77,7 +77,7 @@ class DatabaseManager
     public function purgeTenantConnection()
     {
         if (array_key_exists('tenant', $this->database->getConnections())) {
-            $this->database->purge('tenant');
+            $this->database->disconnect('tenant');
         }
 
         unset($this->config['database.connections.tenant']);
